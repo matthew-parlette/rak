@@ -57,3 +57,6 @@ gem "bootstrap-sass", "~> 2.3.2.0"
 
 # This should fix the warning messages when running 'rails server'
 gem 'webrick', '1.3.1'
+
+# Devise for user accounts
+gem "devise", "~> 3.0.1"
