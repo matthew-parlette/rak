@@ -19,7 +19,7 @@
         <a class="brand" href="<%= url_for %>">rak</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><a href="<%= url_for :controller => :home %>"><i class="icon-home icon-black"></i> Home</a></li>
+            <li><a href="<%= url_for user_root_path %>"><i class="icon-home icon-black"></i> Home</a></li>
           </ul>
           
           <div class="pull-right">
@@ -40,10 +40,10 @@
   <!-- End Header navbar -->
 
   <% if notice %>
-    <div class="notice"><%= notice %></div>
+    <div class="notice alert alert-info"><%= notice %></div>
   <% end %>
   <% if alert %>
-    <div class="alert"><%= alert %></div>
+    <div class="alert alert-danger"><%= alert %></div>
   <% end %>
 
   <%= yield %>
