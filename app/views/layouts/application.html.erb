@@ -26,9 +26,9 @@
             <ul class="nav">
               <% if user_signed_in? %>
                 <li><%= link_to current_user[:email], user_root_path %></li>
-                <li><%= link_to "Logout", destroy_user_session_path %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
               <% else %>
-                <li><%= link_to "Sign In", new_user_session %></li>
+                <li><%= link_to "Sign In", new_user_session_path %></li>
               <% end %>
             </ul>
           </div>
