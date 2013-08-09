@@ -1,4 +1,6 @@
 <h1>Home#index</h1>
 <p>Signed in as <%= current_user[:email] %></p>
 
-<p>Relationships: <%= render partial: 'relationships/index' %></p>
+<p>Relationships: <%= render :action => 'relationships/index' %></p>
+
+<%= link_to "Add Relationship", new_relationship_path(:format => :js), :class => "btn btn-large", :remote => true %>
