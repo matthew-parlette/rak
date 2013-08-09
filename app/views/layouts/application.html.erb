@@ -20,6 +20,16 @@
         <div class="nav-collapse">
           <ul class="nav">
             <li><a href="<%= url_for user_root_path %>"><i class="icon-home icon-black"></i> Home</a></li>
+            <% if @relationships %>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Relationships<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <% @relationships.each do |r| %>
+                  <li><%= link_to r.title, relationship_path(r) %></li>
+                <% end %>
+              </ul>
+            </li>
+            <% end %>
           </ul>
           
           <div class="pull-right">
