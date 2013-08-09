@@ -1,4 +1,4 @@
-<div id="home" class="container">
+<div id="home">
 <p>Relationships: <%= render partial: 'relationships/index', locals: {relationships: @relationships} %></p>
 <hr>
 <%= link_to "Add Relationship", new_relationship_path(:format => :js), :class => "btn btn-large", :remote => true %>

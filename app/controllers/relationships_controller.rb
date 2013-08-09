@@ -11,8 +11,9 @@ class RelationshipsController < ApplicationController
   end
   
   def show
+    @relationship = Relationship.find(params[:id])
     respond_to do |format|
-      format.html { render json: Relationship.find(params[:id]) }
+      format.html {}
       format.js   {}
       format.json { render json: Relationship.find(params[:id]) }
     end
