@@ -1,5 +1,8 @@
 <% relationships.each do |r| %>
-  <div class="btn btn-large">
-    <a href=#><%= r.title %></a>
+  <div class="btn btn-full">
+    <div class="text-left">
+      <%= r.title %><br>
+      <%= r.name %>
+    </div>
   </div>
 <% end %>
