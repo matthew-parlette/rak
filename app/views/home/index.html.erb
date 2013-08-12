@@ -1,9 +1,11 @@
 <div id="home">
-<% if @relationships %>
-  <%= render partial: 'relationships/index', locals: {relationships: @relationships} %>
-<% else %>
-  <p>You have no relationships, click below to add one (or go out and meet some new people!)</p>
-<% end %>
-<hr>
-<%= link_to "Add Relationship", new_relationship_path(:format => :js), :class => "btn btn-large", :remote => true %>
+  <% if @relationships %>
+    <%= render partial: 'relationships/index', locals: {relationships: @relationships} %>
+  <% else %>
+    <p>You have no relationships, click below to add one (or go out and meet some new people!)</p>
+  <% end %>
+  <hr>
+  <div class="centered">
+    <%= link_to "Add Relationship", new_relationship_path(:format => :js), :class => "btn btn-large", :remote => true %>
+  </div>
 </div>
