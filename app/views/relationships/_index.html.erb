@@ -1,8 +1,7 @@
 <% relationships.each do |r| %>
   <div class="btn btn-full">
     <div class="text-left">
-      <%= r.title %><br>
-      <%= r.name %>
+      <%= render partial: 'relationships/overview', locals: {r: r} %>
     </div>
   </div>
 <% end %>
