@@ -1,7 +1,7 @@
 <% relationships.each do |r| %>
-  <div class="btn btn-full">
+  <%= link_to relationship_path(r), class: "btn btn-full" do %>
     <div class="text-left">
       <%= render partial: 'relationships/overview', locals: {r: r} %>
     </div>
-  </div>
+  <% end %>
 <% end %>
