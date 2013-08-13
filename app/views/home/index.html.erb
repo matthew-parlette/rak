@@ -5,7 +5,7 @@
     <p>You have no relationships, click below to add one (or go out and meet some new people!)</p>
   <% end %>
   <hr>
-  <div class="centered">
-    <%= link_to "Add Relationship", new_relationship_path(:format => :js), :class => "btn btn-large", :remote => true %>
+  <div class="text-center">
+    <%= link_to_modal "Add Relationship", new_relationship_path, :class => "btn btn-large", :remote => true %>
   </div>
 </div>

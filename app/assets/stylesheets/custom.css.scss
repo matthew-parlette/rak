@@ -5,10 +5,6 @@ body{
   padding-top: 65px;
 }
 
-.centered{
-  text-align: center;
-}
-
 /**
  * Full width buttons. Extends `.btn`.
  */
@@ -25,6 +21,11 @@ body{
 /*
  * Relationship
  */
+#relationship-modal{
+  width: 400px;
+  height: 400px;
+}
+ 
 .relationship-text, .relationship-text p{
   padding-top: 0;
   padding-bottom: 0;

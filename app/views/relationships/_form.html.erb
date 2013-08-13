@@ -1,4 +1,4 @@
-<%= form_for @relationship, :remote => true, :class => "modal fade" do |f| %>
+<%= form_for @relationship do |f| %>
   <% if @relationship.errors.any? %>
     <div class="alert alert-danger">
       <h2><%= pluralize(@relationship.errors.count, "error") %> prohibited this relationship from being saved:</h2>
