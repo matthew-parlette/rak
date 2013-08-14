@@ -11,7 +11,7 @@ class RelationshipsController < ApplicationController
   end
   
   def show
-    @relationship = Relationship.find(params[:id])
+    find_relationship
     respond_to do |format|
       format.html {}
       format.js   {}
@@ -29,11 +29,29 @@ class RelationshipsController < ApplicationController
     
     respond_to do |format|
       if @relationship.save
-        format.html { render json: @relationship, notice: 'Task was successfully created.' }
+        format.html { render json: @relationship, notice: 'Relationship was successfully created.' }
         format.js   {}
-        format.json { render json: @relationship, status: :created, location: @task }
+        format.json { render json: @relationship, status: :created }
       else
         format.html { render json: @relationship.errors, status: :unprocessable_entity }
+        format.json { render json: @relationship.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+   def destroy
+    find_relationship
+    
+    respond_to do |format|
+      if @relationship.destroy
+        flash[:notice] = "Successfully deleted relationship."
+        format.html { redirect_to(user_root_path) }
+        format.js   {}
+        format.json { render json: @relationship, status: :deleted }
+      else
+        flash[:alert] = "Relationship could not be deleted."
+        format.html { render json: @relationship.errors, status: :unprocessable_entity }
+        format.js   {}
         format.json { render json: @relationship.errors, status: :unprocessable_entity }
       end
     end
@@ -42,6 +60,10 @@ class RelationshipsController < ApplicationController
   private
     def get_relationships
       @relationships = Relationship.where(:user_id => current_user[:id])
+    end
+    
+    def find_relationship
+      @relationship = Relationship.find(params[:id])
     end
     
     def rel_params
