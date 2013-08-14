@@ -34,13 +34,33 @@ class RelationshipsController < ApplicationController
         format.js   {}
         format.json { render json: @relationship, status: :created }
       else
-        format.html { render json: @relationship.errors, status: :unprocessable_entity }
+        format.html { render @relationship.errors }
         format.json { render json: @relationship.errors, status: :unprocessable_entity }
       end
     end
   end
   
-   def destroy
+  def edit
+    def edit
+      find_relationship
+    end
+  end
+  
+  def update
+    find_relationship
+    
+    respond_to do |format|
+      if @relationship.update(rel_params)
+        flash[:notice] = 'Relationship was successfully updated.'
+        format.html { render 'show' }
+      else
+        flash[:alert] = 'Relationship could not be updated.'
+        format.html { render 'edit' }
+      end
+    end
+  end
+  
+  def destroy
     find_relationship
     
     respond_to do |format|
