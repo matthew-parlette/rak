@@ -29,7 +29,8 @@ class RelationshipsController < ApplicationController
     
     respond_to do |format|
       if @relationship.save
-        format.html { render json: @relationship, notice: 'Relationship was successfully created.' }
+        flash[:notice] = 'Relationship was successfully created.'
+        format.html { redirect_to(user_root_path) }
         format.js   {}
         format.json { render json: @relationship, status: :created }
       else
