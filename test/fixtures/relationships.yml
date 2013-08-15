@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: relationship1
+  name: Relationship 1
+  description: Here is my first friend
+  user_id: 1
+
+two:
+  title: relationship2
+  name: Relationship 2
+  description: And my second friend
+  user_id: 1

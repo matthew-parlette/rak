@@ -1,0 +1,4 @@
+<% relationships.each do |r| %>
+    <%= link_to render(:partial => 'relationships/overview', :locals => {r: r}),
+          relationship_path(r), class: "btn btn-full" %>
+<% end %>

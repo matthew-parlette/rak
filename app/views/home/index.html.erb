@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Signed in as <%= current_user[:email] %></p>
+<div id="home">
+  <% if @relationships %>
+    <%= render partial: 'relationships/index', locals: {relationships: @relationships} %>
+  <% else %>
+    <p>You have no relationships, click below to add one (or go out and meet some new people!)</p>
+  <% end %>
+  <hr>
+  <div class="text-center">
+    <%= link_to_modal "Add Relationship", new_relationship_path, :class => "btn btn-large" %>
+  </div>
+</div>

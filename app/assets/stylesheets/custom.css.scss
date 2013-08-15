@@ -4,3 +4,32 @@ body{
   /* Move the content below the navbar */
   padding-top: 65px;
 }
+
+/**
+ * Full width buttons. Extends `.btn`.
+ */
+.btn-full {
+  width: 70%;
+  padding: 1em 10%;
+  font-size: 22px;
+  line-height: normal;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+}
+
+/*
+ * Relationship
+ */
+#relationship-modal{
+  width: 400px;
+  height: 400px;
+}
+ 
+.relationship-text, .relationship-text p{
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: .5em;
+}
