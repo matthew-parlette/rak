@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
+  title: "first idea"
+  description: "Here is my first idea"
 
 two:
-  title: MyString
-  description: MyText
+  title: "second idea"
+  description: "Here is my second idea"
