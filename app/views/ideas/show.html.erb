@@ -1,2 +1,4 @@
-<h1>Ideas#show</h1>
-<p>Find me in app/views/ideas/show.html.erb</p>
+<% if @idea.relationship %>
+  <%= link_to @idea.relationship.title, relationship_path(@idea.relationship), :class => "label label-info" %>
+<% end %>
+<%= render partial: 'overview', locals: {i: @idea} %>

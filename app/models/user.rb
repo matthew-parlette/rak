@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :relationship
+  has_many :idea, :through => :relationship
 end
