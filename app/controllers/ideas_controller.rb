@@ -30,6 +30,15 @@ class IdeasController < ApplicationController
   end
   
   def update
+    respond_to do |format|
+      if @idea.update(idea_params)
+        flash[:notice] = 'Idea was successfully updated.'
+        format.html { render 'show' }
+      else
+        flash[:alert] = 'Idea could not be updated.'
+        format.html { render 'edit' }
+      end
+    end
   end
   
   def destroy
