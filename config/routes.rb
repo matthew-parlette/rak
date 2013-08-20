@@ -11,7 +11,9 @@ Rak::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :relationships
+  resources :relationships do
+    resources :ideas
+  end
   
   resources :ideas
   

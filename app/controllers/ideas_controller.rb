@@ -3,7 +3,7 @@ class IdeasController < ApplicationController
   before_filter :get_parent_relationship, :only => [:show]
   
   def index
-    @ideas = @relationship.ideas
+    @ideas = Idea.all
   end
 
   def show
