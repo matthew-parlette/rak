@@ -34,6 +34,9 @@
           <%= link_to_modal "New Idea", new_idea_path, :class => "btn" %>
         </div>
       </div>
+      <div id="idea-full-display" class="span8 well">
+        <%= render partial: 'ideas/show', locals: {idea: Idea.last} %>
+      </div>
     </div>
   </div>
 </div>
