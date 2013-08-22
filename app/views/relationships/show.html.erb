@@ -29,6 +29,10 @@
     <div class="span12">
       <div class="span4">
         <%= render partial: 'ideas', locals: {ideas: Idea.where(:relationship_id => @relationship.id)} %>
+        <hr>
+        <div class="text-center">
+          <%= link_to_modal "New Idea", new_idea_path, :class => "btn" %>
+        </div>
       </div>
     </div>
   </div>
