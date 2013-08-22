@@ -1,4 +1,4 @@
 <% if @idea.relationship %>
   <%= link_to @idea.relationship.title, relationship_path(@idea.relationship), :class => "label label-info" %>
 <% end %>
-<%= render partial: 'show', locals: {i: @idea} %>
+<%= render partial: 'show', locals: {idea: @idea} %>
