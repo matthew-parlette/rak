@@ -1,20 +1,20 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span7">
-      <p><%= link_to i.title, idea_path(i), :remote => true %></p>
+      <abbr title="<%= i.description %>"><%= link_to i.title, idea_path(i), :remote => true, :class => "idea-overview-title" %></abbr>
     </div>
     <div></div>
     <div class="span5">
       <div class="btn btn-small">I did this!</div>
     </div>
   </div>
-  <div class="row-fluid" style="margin-top: 1em;">
+  <div class="row-fluid" style="margin-top: .5em; padding-bottom: 0em;">
     <div class="span6">
       <div class="label">Never Done</div>
     </div>
     <div class="span6">
       <div class="progress progress-success">
-        <div class="bar" style="width: 75%">4/5</div>
+        <div class="bar" style="width: 75%;">4/5</div>
       </div>
     </div>
   </div>
