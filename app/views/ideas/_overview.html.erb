@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span7">
-      <p><%= i.title %></p>
+      <p><%= link_to i.title, idea_path(i), :remote => true %></p>
     </div>
     <div></div>
     <div class="span5">
