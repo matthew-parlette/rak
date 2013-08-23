@@ -1,5 +1,5 @@
 class Idea < ActiveRecord::Base
-  belongs_to :relationship, dependent: :destroy
+  belongs_to :relationship
   
   delegate :user, :to => :relationship, :allow_nil => false
   

@@ -37,15 +37,31 @@ class IdeasController < ApplicationController
     respond_to do |format|
       if @idea.update(idea_params)
         flash[:notice] = 'Idea was successfully updated.'
-        format.html { render 'show' }
+        format.html { redirect_to :back }
+        format.js   { }
       else
         flash[:alert] = 'Idea could not be updated.'
         format.html { render 'edit' }
       end
     end
+  rescue ActionController::RedirectBackError
+    redirect_to user_root
   end
   
   def destroy
+    respond_to do |format|
+      if @idea.destroy
+        flash[:notice] = "Successfully deleted idea."
+        format.html { redirect_to :back }
+        format.js   {}
+      else
+        flash[:alert] = "Idea could not be deleted."
+        format.html { render json: @idea.errors, status: :unprocessable_entity }
+        format.js   {}
+      end
+    end
+  rescue ActionController::RedirectBackError
+    redirect_to user_root
   end
   
   private
