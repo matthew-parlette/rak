@@ -15,6 +15,9 @@ class IdeasController < ApplicationController
 
   def new
     @idea = Idea.new
+    respond_to do |format|
+      format.html {}
+    end
   end
   
   def create
@@ -23,7 +26,7 @@ class IdeasController < ApplicationController
     respond_to do |format|
       if @idea.save
         flash[:notice] = 'Idea was successfully created.'
-        format.html { redirect_to(idea_path(@idea)) }
+        format.html { redirect_to :back }
       else
         format.html { render @idea.errors }
       end
