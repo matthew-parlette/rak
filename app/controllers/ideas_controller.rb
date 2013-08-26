@@ -52,7 +52,10 @@ class IdeasController < ApplicationController
     respond_to do |format|
       if @idea.destroy
         flash[:notice] = "Successfully deleted idea."
-        format.html { redirect_to :back }
+        format.html do
+          redirect_to :back and return unless request.referer == idea_url(@idea)
+          redirect_to user_root_path
+        end
         format.js   {}
       else
         flash[:alert] = "Idea could not be deleted."
