@@ -1,0 +1,35 @@
+<%= form_for @idea, :html => { :class => "text-center" } do |f| %>
+  <% if @idea.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+
+      <ul>
+      <% @idea.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field control-group">
+    <%= f.label :relationship_id, :class => "control-label" %>
+    <div class="controls">
+      <%= collection_select(:idea, :relationship_id, Relationship.where(:user => current_user), :id, :title, prompt: true) %>
+    </div>
+  </div>
+  <div class="field control-group">
+    <%= f.label :title, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title, :autofocus => true %>
+    </div>
+  </div>
+  <div class="field control-group">
+    <%= f.label :description, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_area :description, :rows => 3 %>
+    </div>
+  </div>
+  <div class="actions text-center">
+    <%= f.submit %>
+  </div>
+<% end %>
