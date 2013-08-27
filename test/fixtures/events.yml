@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  date: 2013-08-27
+  reaction: 9.99
+
+two:
+  title: MyString
+  description: MyText
+  date: 2013-08-27
+  reaction: 9.99
