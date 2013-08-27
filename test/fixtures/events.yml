@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
+  title: "event one"
   description: MyText
   date: 2013-08-27
-  reaction: 9.99
+  reaction: 4.00
 
 two:
-  title: MyString
+  title: "event two"
   description: MyText
   date: 2013-08-27
-  reaction: 9.99
+  reaction: 3.50

@@ -1,4 +1,7 @@
 Rak::Application.routes.draw do
+  get "events/show"
+  get "events/new"
+  get "events/edit"
   get "home/index"
   get "welcome/index"
   devise_for :users do

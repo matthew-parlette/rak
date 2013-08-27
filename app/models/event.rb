@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
   belongs_to :idea
   
-  validates :title, precense: true
+  validates :title, presence: true
 end
