@@ -1,7 +1,4 @@
 Rak::Application.routes.draw do
-  get "events/show"
-  get "events/new"
-  get "events/edit"
   get "home/index"
   get "welcome/index"
   devise_for :users do
@@ -16,7 +13,11 @@ Rak::Application.routes.draw do
 
   resources :relationships
   
-  resources :ideas
+  resources :ideas do
+    resources :events
+  end
+  
+  resources :events
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
