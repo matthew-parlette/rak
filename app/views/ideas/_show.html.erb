@@ -31,4 +31,9 @@
       </div>
     </div>
   </div>
+  <% @events.each do |e| %>
+  <div class="well" style="padding-bottom: 0px;">
+    <%= render partial: 'events/overview', locals: {event: e} %>
+  </div>
+<% end %>
 </div>

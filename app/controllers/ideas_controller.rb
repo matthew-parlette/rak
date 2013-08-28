@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_filter :get_idea, :only => [:show,:edit,:update,:destroy]
   before_filter :get_parent_relationship, :only => [:show]
+  before_filter :get_events, :only => [:show]
   
   def index
     @ideas = Idea.all
@@ -79,6 +80,10 @@ class IdeasController < ApplicationController
       if @idea.relationship_id
         @relationship = Relationship.find(@idea.relationship_id)
       end
+    end
+    
+    def get_events
+      @events = Event.where(:idea_id => @idea.id)
     end
     
     def idea_params
