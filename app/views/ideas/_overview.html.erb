@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid idea-overview">
   <div class="row-fluid">
     <div class="span7">
       <abbr title="<%= i.description %>"><%= link_to i.title, idea_path(i), :remote => true, :class => "idea-overview-title" %></abbr>
@@ -13,9 +13,7 @@
       <div class="label">Never Done</div>
     </div>
     <div class="span6">
-      <div class="progress progress-success">
-        <div class="bar" style="width: 75%;">4/5</div>
-      </div>
+      <div class="rating"></div>
     </div>
   </div>
 </div>

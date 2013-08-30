@@ -46,9 +46,9 @@ class EventsController < ApplicationController
     def get_parent_idea
       if params[:idea_id]
         @idea = Idea.find(params[:idea_id])
-      elsif params[:event][:idea_id]
+      elsif params[:event] and params[:event][:idea_id]
         @idea = Idea.find(params[:event][:idea_id])
-      elsif @event.event_id
+      elsif @event.idea_id
         @idea = Idea.find(@event.idea_id)
       end
       logger.info "idea is " + @idea.title
