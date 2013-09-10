@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span7">
+      <abbr title="<%= event.description %>"><%= link_to event.title, event_path(event), :class => "event-overview-title" %></abbr>
+    </div>
+    <div></div>
+    <div class="span5">
+      
+    </div>
+  </div>
+  <div class="row-fluid" style="margin-top: .5em; padding-bottom: 0em;">
+    <div class="span6">
+      <div class="label"><%= event.date %></div>
+    </div>
+    <div class="span6">
+      <div id="event-<%= event.id %>" class="rating" data-url="<%= event_path(event) %>"></div>
+    </div>
+  </div>
+</div>

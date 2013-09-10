@@ -13,7 +13,11 @@ Rak::Application.routes.draw do
 
   resources :relationships
   
-  resources :ideas
+  resources :ideas do
+    resources :events
+  end
+  
+  resources :events
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

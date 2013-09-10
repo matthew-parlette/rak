@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_filter :get_idea, :only => [:show,:edit,:update,:destroy]
   before_filter :get_parent_relationship, :only => [:show]
+  before_filter :get_events, :only => [:show]
   
   def index
     @ideas = Idea.all
@@ -10,6 +11,9 @@ class IdeasController < ApplicationController
     respond_to do |format|
       format.html {}
       format.js   { render :layout => false }
+      #json rendering doesn't include the elements that don't exist in the database,
+      # so here we have to explicitly include the reaction element.
+      format.json { render json: @idea.to_json(:methods => [:reaction]) }
     end
   end
 
@@ -73,12 +77,17 @@ class IdeasController < ApplicationController
   private
     def get_idea
       @idea = Idea.find(params[:id])
+      @idea.reaction = Event.where(:idea_id => @idea.id).average(:reaction)
     end
     
     def get_parent_relationship
       if @idea.relationship_id
         @relationship = Relationship.find(@idea.relationship_id)
       end
+    end
+    
+    def get_events
+      @events = Event.where(:idea_id => @idea.id)
     end
     
     def idea_params
