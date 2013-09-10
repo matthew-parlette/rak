@@ -40,7 +40,10 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        flash[:notice] = 'Event was successfully updated.'
+        #only update the notice if more than the reaction was updated
+        if not event_params.key?("reaction")
+          flash[:notice] = 'Event was successfully updated.'
+        end
         format.html { redirect_to :back }
         format.js   { }
         format.json { render json: @event }
