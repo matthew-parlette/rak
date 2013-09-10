@@ -17,3 +17,4 @@
 //= require_tree .
 //= require bootstrap
 //= require jquery.modal
+//= require jquery.raty.min
