@@ -6,4 +6,6 @@ class Idea < ActiveRecord::Base
   delegate :user, :to => :relationship, :allow_nil => false
   
   validates :title, presence: true
+  
+  attr_accessor :reaction
 end

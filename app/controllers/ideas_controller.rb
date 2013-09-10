@@ -11,6 +11,9 @@ class IdeasController < ApplicationController
     respond_to do |format|
       format.html {}
       format.js   { render :layout => false }
+      #json rendering doesn't include the elements that don't exist in the database,
+      # so here we have to explicitly include the reaction element.
+      format.json { render json: @idea.to_json(:methods => [:reaction]) }
     end
   end
 
@@ -74,6 +77,8 @@ class IdeasController < ApplicationController
   private
     def get_idea
       @idea = Idea.find(params[:id])
+      @idea.reaction = Event.where(:idea_id => @idea.id).average(:reaction)
+      logger.info @idea.reaction
     end
     
     def get_parent_relationship

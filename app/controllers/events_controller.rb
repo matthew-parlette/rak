@@ -4,6 +4,11 @@ class EventsController < ApplicationController
   before_filter :get_parent_relationship, :only => [:destroy]
   
   def show
+    logger.info json: @event
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @event }
+    end
   end
 
   def new
@@ -33,6 +38,18 @@ class EventsController < ApplicationController
   end
   
   def update
+    respond_to do |format|
+      if @event.update(event_params)
+        flash[:notice] = 'Event was successfully updated.'
+        format.html { redirect_to :back }
+        format.js   { }
+        format.json { render json: @event }
+      else
+        flash[:alert] = 'Event could not be updated.'
+        format.html { redirect_to :edit }
+        format.json { render json: @event.errors, :status => :unprocessable_entity }
+      end
+    end
   end
   
   def destroy

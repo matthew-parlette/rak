@@ -17,5 +17,22 @@ pageLoad = ->
 
 refreshRatings = ->
   $(".rating").each (index,value) ->
-    $(this).raty
-      path: "/assets"
+    div_id = $(this).attr("id")
+    #alert $(this).attr("data-url")
+    #TODO: make this generic so it will update idea-* or event-*
+    $.ajax
+      url: $(this).attr("data-url"),
+      type: 'GET',
+      dataType: 'json'
+      success: (data, textStatus, jqXHR) ->
+        reaction = data['reaction']
+        $("##{div_id}").raty
+          path: "/assets"
+          score: reaction
+          click: (score,evt) ->
+            $.ajax
+              url: $(this).attr("data-url"),
+              type: 'PATCH',
+              dataType: 'json',
+              data: { event: { reaction: score } }
+  
