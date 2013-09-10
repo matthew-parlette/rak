@@ -78,7 +78,6 @@ class IdeasController < ApplicationController
     def get_idea
       @idea = Idea.find(params[:id])
       @idea.reaction = Event.where(:idea_id => @idea.id).average(:reaction)
-      logger.info @idea.reaction
     end
     
     def get_parent_relationship

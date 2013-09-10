@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   before_filter :get_parent_relationship, :only => [:destroy]
   
   def show
-    logger.info json: @event
     respond_to do |format|
       format.html {}
       format.json { render json: @event }
@@ -71,7 +70,6 @@ class EventsController < ApplicationController
       elsif @event.idea_id
         @idea = Idea.find(@event.idea_id)
       end
-      logger.info "idea is " + @idea.title
     end
     
     def get_parent_relationship
