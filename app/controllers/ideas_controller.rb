@@ -19,6 +19,10 @@ class IdeasController < ApplicationController
 
   def new
     @idea = Idea.new
+    
+    #Use the session's current relationship id
+    @idea.relationship_id = session[:relationship_id]
+    
     respond_to do |format|
       format.html {}
     end
