@@ -85,6 +85,7 @@ class RelationshipsController < ApplicationController
     
     def find_relationship
       @relationship = Relationship.find(params[:id])
+      session[:relationship_id] = @relationship.id
     end
     
     def rel_params
