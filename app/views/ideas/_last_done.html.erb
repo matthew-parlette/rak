@@ -1,0 +1,10 @@
+<% latest_event = Event.where(:idea_id => idea.id).last %>
+<% if latest_event %>
+  <% if latest_event.date == Date.current() %>
+    <div class="label label-success"><%= "A day ago" %></div>
+  <% elsif latest_event.date > 30.days.ago %>
+    <div class="label label-success"><%= distance_of_time_in_words(latest_event.date,Date.current()) + " ago" %></div>
+  <% end %>
+<% else %>
+  <div class="label">Never Done</div>
+<% end %>
