@@ -29,6 +29,7 @@ refreshRatings = ->
         $("##{div_id}").raty
           path: "/assets"
           score: reaction
+          readOnly: $("##{div_id}").attr("data-readonly")
           click: (score,evt) ->
             $.ajax
               url: $(this).attr("data-url"),
