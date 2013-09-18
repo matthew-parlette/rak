@@ -9,7 +9,7 @@
         <dd><%= render partial: 'ideas/last_done', locals: {idea: idea} %></dd>
         
         <dt>Reception</dt>
-        <dd>4 of 5</dd>
+        <dd><div id="idea-show-<%= idea.id %>" class="rating" data-url="<%= idea_path(idea) %>" data-readonly=true></div></dd>
       </dl>
     </div>
     <div class="span2">
