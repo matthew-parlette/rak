@@ -36,4 +36,6 @@ refreshRatings = ->
               type: 'PATCH',
               dataType: 'json',
               data: { event: { reaction: score } }
+              success: ->
+                refreshRatings()
   
