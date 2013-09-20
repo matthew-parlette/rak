@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827140337) do
+ActiveRecord::Schema.define(version: 20130919175713) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130827140337) do
     t.integer  "relationship_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "threshold"
   end
 
   create_table "relationships", force: true do |t|

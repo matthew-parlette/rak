@@ -1,11 +1,21 @@
 <% latest_event = Event.where(:idea_id => idea.id).last %>
+
 <% if latest_event %>
-  <% if latest_event.date == Date.current() %>
-    <div class="label label-success"><%= "A day ago" %></div>
-  <% elsif latest_event.date > 30.days.ago %>
-    <div class="label label-success"><%= distance_of_time_in_words(latest_event.date,Date.current()) + " ago" %></div>
+  <% if idea.threshold %>
+  <% warning_threshold = idea.threshold * 0.9 %>
+    <% if latest_event.date == Date.current() %>
+      <div class="label label-success"><%= "A day ago" %></div>
+    <% elsif latest_event.date > idea.threshold.days.ago %>
+      <% if latest_event.date < warning_threshold.days.ago  %>
+        <div class="label label-warning"><%= distance_of_time_in_words(latest_event.date,Date.current()) + " ago" %></div>
+      <% else %>
+        <div class="label label-success"><%= distance_of_time_in_words(latest_event.date,Date.current()) + " ago" %></div>
+      <% end %>
+    <% else %>
+      <div class="label label-important"><%= distance_of_time_in_words(latest_event.date,Date.current()) + " ago" %></div>
+    <% end %>
   <% else %>
-    <div class="label label-important"><%= distance_of_time_in_words(latest_event.date,Date.current()) + " ago" %></div>
+    <div class="label"><%= distance_of_time_in_words(latest_event.date,Date.current()) + " ago" %></div>
   <% end %>
 <% else %>
   <div class="label">Never Done</div>

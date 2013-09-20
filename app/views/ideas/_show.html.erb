@@ -10,6 +10,14 @@
         
         <dt>Reception</dt>
         <dd><div id="idea-show-<%= idea.id %>" class="rating" data-url="<%= idea_path(idea) %>" data-readonly=true></div></dd>
+        
+        <dt>Notification Threshold</dt>
+        <% if idea.threshold %>
+          <dd><%= idea.threshold %> days</dd>
+        <% else %>
+          <dd>None defined</dd>
+        <% end %>
+        
       </dl>
     </div>
     <div class="span2">

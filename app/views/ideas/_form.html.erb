@@ -29,6 +29,12 @@
       <%= f.text_area :description, :rows => 3 %>
     </div>
   </div>
+  <div class="field control-group">
+    <%= f.label :threshold, 'Notification Threshold (in days)', :class => "control-label" %>
+    <div class="controls">
+      <%= f.number_field :threshold %>
+    </div>
+  </div>
   <div class="actions text-center">
     <%= f.submit %>
   </div>
