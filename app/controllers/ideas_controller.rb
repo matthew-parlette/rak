@@ -95,7 +95,7 @@ class IdeasController < ApplicationController
     end
     
     def idea_params
-      params.require(:idea).permit(:title,:description,:relationship_id)
+      params.require(:idea).permit(:title,:description,:relationship_id,:threshold)
       #params.require(:idea).require(:relationship_id)
     end
 end
